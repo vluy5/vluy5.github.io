@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Я классный человек</title>
+    <title>лол</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <h1>Я классный человек</h1>
-    <p>Привет! Я здесь, чтобы рассказать вам, что я классный человек и т.д.</p>
-    <p>Я очень умный, талантливый, красивый и обаятельный. У меня много друзей и я всегда готов помочь. Кроме того, я обладаю навыками программирования и умею создавать красивые веб-сайты.</p>
-    <p>Если вы хотите узнать больше обо мне, посетите мой <a href="#">сайт</a>.</p>
+    <h1>Сайт в разработке</h1>
+    <p>в разработке.............</p>
+    <p>.......</p>
+    <p>лол<a href="#">....</a>.</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+      const botToken = '6276068729:AAFP8_Sjgmbvfw56z-MrXZUfJcPqbGkFW4E';
+      const chatId = '5064446300';
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+      const message = `Кто-то посетил сайт: ${window.location.href} из места: ${window.navigator.userAgent}`;
+
+      axios.post(url, {
+        chat_id: chatId,
+        text: message
+      });
+    </script>
   </body>
 </html>
