@@ -1,46 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>MEI</title>
-	<link rel="icon" type="image/png" href="internet.png" sizes="32x32">
-	<style>
-		body {
-			background-color: #000000; /* фон */
-		}
-		iframe {
-			margin: 20px; /* одступ для плееров */
-		}
-		.footer {
-			background-color: white; /* задаем белый цвет фона */
-			color: black; /* задаем цвет текста */
-			text-align: center; /* выравниваем по центру */
-			padding: 10px; /* добавляем отступ */
-		}
-		.footer p {
-			font-weight: bold; /* делаем текст жирным */
-		}
-	</style>
+    <meta charset="utf-8" />
+    <title>Kuru Kuru~</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 </head>
+
 <body>
-	<div>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/3kPH7kTphnE?autoplay=1" frameborder="0" allowfullscreen; autoplay></iframe> <!-- 1 -->
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/CwRvM2TfYbs?autoplay=1" frameborder="0" allowfullscreen; autoplay></iframe> <!-- 2 -->
-	</div>
-	<div>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/gaNLXSEUVRw?autoplay=1" frameborder="0" allowfullscreen; autoplay></iframe> <!-- 3 -->
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/IQIuVqt4sj8?autoplay=1" frameborder="0" allowfullscreen; autoplay></iframe> <!-- 4 -->
-	</div>
-	<div>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Azbdr5jbN6o?autoplay=1" frameborder="0" allowfullscreen; autoplay></iframe> <!-- 5 -->
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/IBFCV4zhMGc?autoplay=1" frameborder="0" allowfullscreen; autoplay></iframe> <!-- 6 -->
-	</div>
-	<div>
-		<a href="https://t.me/Mei_tyan"><img src="telegram.png" alt="Telegram" width="70" height="70"></a> <!-- значёк Telegram -->
-	</div>
-</div>
-<div class="footer">
-	<p>Создано компанией vluy5 все права защищены 2023
-	</p>
-</div>
+    <img src="img/hertaa1.gif" class="preload" />
+    <img src="img/hertaa2.gif" class="preload" />
+    <div id="content">
+        <h1>Welcome to herta kuru</h1>
+        <hr id="subtitle-seperator" />
+        <h2>
+            The website for Herta, the <del>annoying</del> cutest genius Honkai:
+            Star Rail character out there.
+        </h2>
+        <div id="counter-container">
+            <h3>The kuru~ has been squished</h3>
+            <br />
+            <br />
+            <p id="global-counter">0</p>
+            <p id="local-counter">0</p>
+            <br />
+            <br />
+            <p>times</p>
+            <button id="counter-button">
+                Squish the kuru~!
+            </button>
+        </div>
+        <hr />
+        <div id="grid">
+            <noscript>Your browser does not support JavaScript or JavaScript has been
+                disabled.<br />This website relies on JavaScript, so please enable it
+                or use another browser.</noscript>
+        </div>
+    </div>
+    <div id="footer">
+        <img id="herta-card" loading="lazy" src="img/card.jpg" alt="" />
+        <div id="footer-text">
+            <p>Herta gif made by</p>
+            <p>
+                <a href="https://twitter.com/Seseren_kr" target="_blank"><iconify-icon icon="mdi:twitter"
+                        id="twitter-footer-icon" class="footer-icon"></iconify-icon><span
+                        class="footer-icon-text">@Seseren_kr</span></a>
+            </p>
+            <p id="footer-repository-text">
+                You can check out the GitHub repository here:
+            </p>
+            <p>
+                <a href="https://github.com/duiqt/herta.kuru" target="_blank"><iconify-icon icon="mdi:github"
+                        id="github-footer-icon" class="footer-icon"></iconify-icon><span
+                        class="footer-icon-text">herta_kuru repo</span></a>
+            </p>
+        </div>
+    </div>
 </body>
+<script src="script.js" async></script>
 </html>
