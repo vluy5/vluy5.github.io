@@ -2,12 +2,32 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="cyberpunk.ico">
+  <link rel="icon" type image/x-icon" href="cyberpunk.ico">
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="container">
     <button class="neon-button" id="playButton">Подтвердить</button>
   </div>
   <script src="script.js"></script>
+  
+  <script>
+    // Добавляем обработчик нажатия клавиши F12
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "F12") {
+        event.preventDefault(); // Предотвращаем действие по умолчанию
+        const container = document.getElementById("container");
+        container.style.display = "none"; // Скрываем контейнер с кнопкой
+        document.body.style.backgroundColor = "white";
+        const errorText = document.createElement("div");
+        errorText.textContent = "Error 404";
+        errorText.style.position = "fixed";
+        errorText.style.top = "0";
+        errorText.style.left = "0";
+        errorText.style.fontSize = "24px";
+        errorText.style.color = "red";
+        document.body.appendChild(errorText);
+      }
+    });
+  </script>
 </body>
 </html>
