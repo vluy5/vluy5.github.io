@@ -1,5 +1,5 @@
 https://vluy5.github.io
 
-Telegram @Mei_tyan
+Telegram [Mei](https://t.me/Mei_tyan)
 
 By Mei 
