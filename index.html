@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="neon_cursor.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="icon" type image/x-icon" href="cyberpunk.ico">
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="r.wav" type="audio/wav">
+  </audio>
   <div class="container" id="container">
-    <button class="neon-button" id="playButton">Подтвердить</button>
+    <button class="neon-button" id="playButton">Confirm</button>
   </div>
   <script src="script.js"></script>
-  
+
   <script>
-    // Добавляем обработчик нажатия клавиши F12
     window.addEventListener("keydown", (event) => {
       if (event.key === "F12") {
-        event.preventDefault(); // Предотвращаем действие по умолчанию
+        event.preventDefault(); 
         const container = document.getElementById("container");
-        container.style.display = "none"; // Скрываем контейнер с кнопкой
+        container.style.display = "none"; 
         document.body.style.backgroundColor = "white";
         const errorText = document.createElement("div");
         errorText.innerHTML = `

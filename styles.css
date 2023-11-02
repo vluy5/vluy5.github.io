@@ -17,18 +17,18 @@ body {
     border: none;
     border-radius: 50px;
     background-color: transparent;
-    color: #FF1493; /* Розовый цвет */
+    color: #FF1493; 
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(255, 20, 147, 0.7); /* Эффект неона */
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.7); 
   }
   
   .neon-button:hover {
-    background-color: #FF1493; /* Розовый цвет */
-    color: #000; /* Черный цвет для текста при наведении */
-    box-shadow: 0 0 20px rgba(255, 20, 147, 1); /* Увеличение эффекта неона */
+    background-color: #FF1493; 
+    color: #000; 
+    box-shadow: 0 0 20px rgba(255, 20, 147, 1); 
   }
   
   .blocked-container {
@@ -50,3 +50,4 @@ p {
     font-size: 16px;
     margin: 10px 0;
 }
+

@@ -1,0 +1,8 @@
+body {
+    cursor: url(lperson.cur), auto;
+  }
+  
+  .neon-button:hover {
+    cursor: url(pin_l.cur), auto;
+  }
+  
