@@ -1,0 +1,36 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black; 
+}
+
+#kImage {
+    position: absolute;
+    width: 100px;
+    height: auto;
+}
+
+
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border: 1px solid #000;
+    text-align: center;
+    display: none;
+}
+
+#confirmationDialog p {
+    margin: 0;
+}
