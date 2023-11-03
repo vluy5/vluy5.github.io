@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+  <meta charset="UTF-8">
+  <title>Top</title>
   <link rel="stylesheet" type="text/css" href="neon_cursor.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="icon" type image/x-icon" href="cyberpunk.ico">
+  <link rel="icon" type="image/x-icon" href="cyberpunk.ico">
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="r.wav" type="audio/wav">
-  </audio>
   <div class="container" id="container">
     <button class="neon-button" id="playButton">Confirm</button>
+    <button class="neon-button" id="dvdButton">dvd</button>
   </div>
   <script src="script.js"></script>
-
   <script>
+    document.getElementById("dvdButton").addEventListener("click", () => {
+      window.location.href = "dvd/dvd.html";
+    });
+
     window.addEventListener("keydown", (event) => {
       if (event.key === "F12") {
         event.preventDefault(); 
@@ -46,3 +49,4 @@
   </script>
 </body>
 </html>
+
