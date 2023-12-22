@@ -1,33 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Top</title>
   <link rel="stylesheet" type="text/css" href="neon_cursor.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="icon" type="image/x-icon" href="cyberpunk.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px; /* Отступ снизу между кнопками и картинкой */
+    }
+
+    button {
+      margin-bottom: 10px; /* Отступ между кнопками */
+    }
+
+    .small-image {
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      margin-top: 20px; /* Отступ между картинкой и кнопками */
+    }
+  </style>
 </head>
 <body>
-  <div class="container" id="container">
+  <div class="button-container">
     <button class="neon-button" id="playButton">Confirm</button>
     <button class="neon-button" id="dvdButton">dvd</button>
     <button class="neon-button" id="planetbutton">planet</button>
   </div>
+  <a href="el.html"><img class="small-image" src="tyan2024.png" alt="2024" /></a>
   <script src="script.js"></script>
   <script>
     document.getElementById("planetbutton").addEventListener("click", () => {
       window.location.href = "planet/planet.html";
     });
-  </script>
-  <script>
+
     document.getElementById("dvdButton").addEventListener("click", () => {
       window.location.href = "dvd/dvd.html";
+    });
+
+    document.querySelector(".small-image").addEventListener("click", () => {
+      window.location.href = "el.html";
     });
 
     window.addEventListener("keydown", (event) => {
       if (event.key === "F12") {
         event.preventDefault(); 
-        const container = document.getElementById("container");
+        const container = document.getElementById("button-container");
         container.style.display = "none"; 
         document.body.style.backgroundColor = "white";
         const errorText = document.createElement("div");
@@ -55,4 +88,3 @@
   </script>
 </body>
 </html>
-
