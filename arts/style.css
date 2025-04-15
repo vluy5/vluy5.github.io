@@ -1,85 +1,87 @@
 body {
-    background: #000;
-    color: white;
-    font-family: sans-serif;
     margin: 0;
+    background: linear-gradient(135deg, #000000, #1a001a);
+    color: white;
+    font-family: Arial, sans-serif;
   }
   
-  header {
+  .header {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     background: #111;
+    border-bottom: 1px solid #fff;
   }
   
-  header img {
+  .logo {
     height: 40px;
     margin-right: 20px;
   }
   
-  .genres button {
+  .nav button {
     background: transparent;
-    border: 1px solid white;
     color: white;
-    padding: 5px 10px;
+    border: 1px solid white;
+    padding: 8px 16px;
     margin-right: 10px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s;
   }
   
-  .genres button:hover {
-    background: #ff3399;
+  .nav button:hover {
+    background: rgba(255, 20, 147, 0.2);
   }
   
   .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
+    gap: 20px;
   }
   
   .image-card {
     border: 1px solid white;
-    margin: 10px;
-    padding: 5px;
+    padding: 10px;
+    background: #1a1a1a;
+    max-width: 300px;
     text-align: center;
-    width: 200px;
   }
   
   .image-card img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    cursor: pointer;
+    display: block;
   }
   
-  footer {
+  .load-container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .load-more {
+    padding: 10px 20px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .load-more:hover {
+    background: rgba(255, 20, 147, 0.2);
+  }
+  
+  .footer {
     text-align: center;
     padding: 20px;
+    border-top: 1px solid white;
     background: #111;
-    margin-top: 30px;
+    color: #ccc;
   }
   
-  .admin form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .admin label, .admin select, .admin input, .admin button {
-    margin: 10px 0;
-  }
-  
-  .admin input[type="file"] {
-    background: #222;
-    color: white;
-  }
-  
-  .admin button {
-    background: #ff3399;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+  .footer a {
+    color: #ff66cc;
+    text-decoration: none;
   }
   
