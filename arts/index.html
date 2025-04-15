@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Arts Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Галерея</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <img src="logo.png" alt="Logo" class="logo">
-    <nav class="nav">
-      <button class="genre-button" data-genre="a0">A0</button>
-      <button class="genre-button" data-genre="a1">A1</button>
-      <button class="genre-button" data-genre="a2">A2</button>
-      <button class="genre-button" data-genre="a3">A3</button>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <nav>
+      <button id="mainBtn">Главная</button>
+      <button id="recentBtn">Недавние</button>
     </nav>
   </header>
 
-  <main>
-    <div id="gallery" class="gallery"></div>
-    <div class="load-container">
-      <button id="loadMore" class="load-more">Загрузить ещё</button>
-    </div>
-  </main>
+  <main id="gallery"></main>
+  <div class="center">
+    <button id="loadMore">Загрузить ещё</button>
+  </div>
 
-  <footer class="footer">
-    <p>© Все права защищены, 2015–2025</p>
-    <p>Связь: <a href="https://t.me/Mei_tyan" target="_blank">@Mei_tyan</a></p>
+  <footer>
+    © Все права защищены 2015–2025 | <a href="https://t.me/Mei_tyan">t.me/Mei_tyan</a>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>

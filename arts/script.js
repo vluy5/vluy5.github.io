@@ -1,51 +1,54 @@
-const API_BASE = 'https://194.242.100.155:7763';
-let currentGenre = null;
+const API_BASE = 'https://194.242.100.155:443';
 let offset = 0;
-const limit = 20;
+let tab = 'main';
+let loading = false;
 
-const gallery = document.getElementById('gallery');
-const loadMoreBtn = document.getElementById('loadMore');
-
-document.querySelectorAll('.genre-button').forEach(button => {
-  button.addEventListener('click', () => {
-    currentGenre = button.dataset.genre;
-    offset = 0;
-    gallery.innerHTML = '';
-    loadImages();
-  });
-});
-
-loadMoreBtn.addEventListener('click', () => {
+function loadTab(newTab) {
+  tab = newTab;
+  offset = 0;
+  document.getElementById('gallery').innerHTML = '';
+  document.getElementById('loadMoreBtn').style.display = 'block';
   loadImages();
-});
-
-function loadImages() {
-  if (!currentGenre) return;
-
-  fetch(`${API_BASE}/api/images/${currentGenre}?offset=${offset}&limit=${limit}`)
-    .then(res => res.json())
-    .then(data => {
-      data.images.forEach(image => {
-        const card = document.createElement('div');
-        card.classList.add('image-card');
-        card.innerHTML = `
-          <img src="${API_BASE}${image.url}" alt="image">
-          <p>Загрузил: ${image.uploader}</p>
-          <p>Просмотров: ${image.views}</p>
-        `;
-        gallery.appendChild(card);
-      });
-
-      offset += limit;
-
-      // Показываем/скрываем кнопку
-      if (data.hasMore) {
-        loadMoreBtn.style.display = 'block';
-      } else {
-        loadMoreBtn.style.display = 'block'; // Не скрываем
-      }
-    })
-    .catch(err => {
-      console.error('Ошибка загрузки:', err);
-    });
 }
+
+function loadMore() {
+  if (!loading) loadImages();
+}
+
+async function loadImages() {
+  loading = true;
+  try {
+    let url = tab === 'main'
+      ? `${API_BASE}/api/images/main?offset=${offset}&limit=20`
+      : `${API_BASE}/api/images/recent`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (!data.images.length) {
+      document.getElementById('loadMoreBtn').style.display = 'none';
+    }
+
+    for (const image of data.images) {
+      const div = document.createElement('div');
+      div.className = 'image-card';
+      div.innerHTML = `
+        <img src="${API_BASE}${image.url}" alt="картинка">
+        <p>Просмотров: ${image.views}</p>
+      `;
+      document.getElementById('gallery').appendChild(div);
+    }
+
+    if (tab === 'main') offset += 20;
+    if (!data.hasMore && tab === 'main') {
+      document.getElementById('loadMoreBtn').style.display = 'none';
+    }
+  } catch (err) {
+    console.error('Ошибка загрузки:', err);
+  } finally {
+    loading = false;
+  }
+}
+
+// Загружаем при первом открытии
+loadTab('main');

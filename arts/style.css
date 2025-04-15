@@ -1,16 +1,16 @@
 body {
     margin: 0;
-    background: linear-gradient(135deg, #000000, #1a001a);
-    color: white;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
+    background: #000;
+    color: #fff;
   }
   
-  .header {
+  header {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
     background: #111;
-    border-bottom: 1px solid #fff;
+    padding: 10px 20px;
+    box-shadow: 0 0 15px #f0f;
   }
   
   .logo {
@@ -18,21 +18,21 @@ body {
     margin-right: 20px;
   }
   
-  .nav button {
+  nav button {
+    margin-right: 10px;
     background: transparent;
     color: white;
     border: 1px solid white;
-    padding: 8px 16px;
-    margin-right: 10px;
+    padding: 6px 12px;
     cursor: pointer;
-    transition: background 0.3s;
   }
   
-  .nav button:hover {
-    background: rgba(255, 20, 147, 0.2);
+  nav button:hover {
+    background: #f0f;
+    color: black;
   }
   
-  .gallery {
+  #gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -41,47 +41,33 @@ body {
   }
   
   .image-card {
-    border: 1px solid white;
-    padding: 10px;
-    background: #1a1a1a;
-    max-width: 300px;
-    text-align: center;
+    border: 2px solid white;
+    padding: 5px;
+    width: 200px;
+    background: #111;
   }
   
   .image-card img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
   }
   
-  .load-container {
+  .info {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .center {
     text-align: center;
     margin: 20px;
   }
   
-  .load-more {
-    padding: 10px 20px;
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .load-more:hover {
-    background: rgba(255, 20, 147, 0.2);
-  }
-  
-  .footer {
+  footer {
     text-align: center;
     padding: 20px;
-    border-top: 1px solid white;
     background: #111;
-    color: #ccc;
-  }
-  
-  .footer a {
-    color: #ff66cc;
-    text-decoration: none;
+    border-top: 1px solid #444;
+    color: #aaa;
   }
   

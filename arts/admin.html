@@ -2,104 +2,75 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Админ-панель</title>
-  <style>
-    body {
-      background: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-
-    input, select {
-      margin: 10px 0;
-      padding: 8px;
-      display: block;
-      width: 300px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background: #222;
-      color: white;
-      border: 1px solid white;
-      cursor: pointer;
-    }
-
-    #uploadForm {
-      display: none;
-    }
-
-    h2 {
-      margin-top: 40px;
-    }
-  </style>
+  <title>Админка</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h2>Админ-панель</h2>
+  </header>
 
-  <h1>Админ-панель</h1>
+  <main class="center">
+    <form id="loginForm">
+      <h3>Вход</h3>
+      <input type="text" placeholder="Логин" name="username" required>
+      <input type="password" placeholder="Пароль" name="password" required>
+      <button type="submit">Войти</button>
+    </form>
 
-  <div id="loginForm">
-    <input type="text" id="username" placeholder="Имя пользователя">
-    <input type="password" id="password" placeholder="Пароль">
-    <button onclick="login()">Войти</button>
-  </div>
-
-  <div id="uploadForm">
-    <h2>Загрузить изображение</h2>
-    <form id="form" enctype="multipart/form-data">
-      <select name="genre" required>
-        <option value="">Выберите жанр</option>
-        <option value="a0">A0</option>
-        <option value="a1">A1</option>
-        <option value="a2">A2</option>
-        <option value="a3">A3</option>
-      </select>
-      <input type="file" name="image" accept="image/*" required>
+    <form id="uploadForm" style="display:none;" enctype="multipart/form-data">
+      <h3>Загрузка изображения</h3>
+      <input type="file" name="image" required>
       <button type="submit">Загрузить</button>
     </form>
-    <button onclick="logout()">Выйти</button>
-  </div>
+  </main>
+
+  <footer>
+    © Все права защищены 2015–2025 | <a href="https://t.me/Mei_tyan">t.me/Mei_tyan</a>
+  </footer>
 
   <script>
-    async function login() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      const res = await fetch('/api/login', {
+    const API_BASE = 'https://194.242.100.155:443';
+
+    document.getElementById('loginForm').onsubmit = async e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const res = await fetch(`${API_BASE}/api/login`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({
+          username: formData.get('username'),
+          password: formData.get('password')
+        })
       });
+
       const data = await res.json();
       if (data.success) {
-        document.getElementById('loginForm').style.display = 'none';
+        e.target.style.display = 'none';
         document.getElementById('uploadForm').style.display = 'block';
       } else {
-        alert('Неверные данные');
+        alert('Неверный логин или пароль');
       }
-    }
+    };
 
-    async function logout() {
-      await fetch('/api/logout', { method: 'POST' });
-      location.reload();
-    }
-
-    document.getElementById('form').addEventListener('submit', async e => {
+    document.getElementById('uploadForm').onsubmit = async e => {
       e.preventDefault();
-      const formData = new FormData(document.getElementById('form'));
-      const res = await fetch('/api/upload', {
+      const formData = new FormData(e.target);
+      formData.append('genre', 'a0');
+
+      const res = await fetch(`${API_BASE}/api/upload`, {
         method: 'POST',
         body: formData
       });
+
       const data = await res.json();
       if (data.success) {
-        alert('Успешно загружено');
-        document.getElementById('form').reset();
+        alert('Файл загружен');
       } else {
         alert('Ошибка загрузки');
       }
-    });
+    };
   </script>
-
 </body>
 </html>
