@@ -1,4 +1,4 @@
-const API_BASE = 'http://194.242.100.155:7763';
+const API_BASE = 'https://194.242.100.155:7763';
 let currentGenre = null;
 let offset = 0;
 const limit = 20;
