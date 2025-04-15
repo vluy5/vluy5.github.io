@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Top</title>
+    <link rel="stylesheet" type="text/css" href="neon_cursor.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="cyberpunk.ico">
+    </head>
+    <head>
+        <title>Main site</title>
+        <style>
+            body {
+                background-color: black;
+                color: white; /* added this line */
+            }
+            .bottom-panel {
+                background-color: gray;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+            .neon-button {
+                background-color: pink;
+                color: black; /* changed this line */
+                border: none;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgb(218, 13, 200);
+            }
+            .neon-button:hover {
+                background-color: rgb(255, 0, 255);
+                color: black;
+                box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff, 0 0 80px #fff;
+            }
+            .neon-button:active {
+                background-color: #fff;
+                color: black;
+                box-shadow: 0 0 5px #ffffff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
+            }
+            .neon-button-1 {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+            }
+            .neon-button-2 {
+                position: fixed;
+                top: 80px;
+                left: 10px;
+            }
+            .neon-button-3 {
+                position: fixed;
+                top: 150px;
+                left: 10px;
+            }
+            .neon-button-4 {
+                position: fixed;
+                top: 220px;
+                left: 10px;
+            }
+            .welcome-text {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <button class="neon-button neon-button-1">Top</button>
+        <button class="neon-button neon-button-2">DvD</button>
+        <button class="neon-button neon-button-3">Plannet</button>
+        <button class="neon-button neon-button-4">4</button>
+        <div class="bottom-panel">
+            &copy; 2023 - All rights reserved
+        </div>
+    </body>
+</html>
+

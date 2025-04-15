@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouncing Balls</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .ball {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: red; /* начальный цвет шарика */
+    }
+
+    #ballCounter {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-size: 18px;
+      color: pink; /* розовый цвет счетчика */
+    }
+  </style>
+</head>
+<body>
+  <div id="ballCounter">Balls: 0</div>
+
+  <script>
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    var balls = [];
+    var ballCounter = 0;
+
+    function updateBallCounter() {
+      document.getElementById('ballCounter').innerText = 'Balls: ' + ballCounter;
+    }
+
+    function createBall(x, y) {
+      var ball = document.createElement('div');
+      ball.className = 'ball';
+      ball.style.left = x + 'px';
+      ball.style.top = y + 'px';
+      ball.style.backgroundColor = getRandomColor();
+      document.body.appendChild(ball);
+
+      var xSpeed = (Math.random() - 0.5) * 10; // Горизонтальная скорость
+      var ySpeed = (Math.random() - 0.5) * 10; // Вертикальная скорость
+
+      balls.push({ element: ball, xSpeed, ySpeed });
+      ballCounter++;
+      updateBallCounter();
+    }
+
+    function moveBalls() {
+      var timeStep = 16; // Фиксированный временной шаг в миллисекундах
+
+      for (var i = 0; i < balls.length; i++) {
+        var ball = balls[i];
+        var rect = ball.element.getBoundingClientRect();
+
+        if (rect.top + ball.ySpeed < 0 || rect.bottom + ball.ySpeed > window.innerHeight) {
+          ball.ySpeed = -ball.ySpeed;
+          createBall(rect.left, rect.top);
+          ball.element.style.backgroundColor = getRandomColor();
+        }
+
+        if (rect.left + ball.xSpeed < 0 || rect.right + ball.xSpeed > window.innerWidth) {
+          ball.xSpeed = -ball.xSpeed;
+          createBall(rect.left, rect.top);
+          ball.element.style.backgroundColor = getRandomColor();
+        }
+
+        ball.element.style.top = rect.top + ball.ySpeed + 'px';
+        ball.element.style.left = rect.left + ball.xSpeed + 'px';
+      }
+
+      setTimeout(moveBalls, timeStep);
+    }
+
+    function handleCollision(event) {
+      var x = event.clientX;
+      var y = event.clientY;
+
+      createBall(x, y);
+    }
+
+    document.addEventListener('click', handleCollision);
+
+    // Запуск анимации
+    moveBalls();
+  </script>
+</body>
+</html>
