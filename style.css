@@ -1,0 +1,85 @@
+body {
+    background: #000;
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #111;
+  }
+  
+  header img {
+    height: 40px;
+    margin-right: 20px;
+  }
+  
+  .genres button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .genres button:hover {
+    background: #ff3399;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .image-card {
+    border: 1px solid white;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .image-card img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    margin-top: 30px;
+  }
+  
+  .admin form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .admin label, .admin select, .admin input, .admin button {
+    margin: 10px 0;
+  }
+  
+  .admin input[type="file"] {
+    background: #222;
+    color: white;
+  }
+  
+  .admin button {
+    background: #ff3399;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
