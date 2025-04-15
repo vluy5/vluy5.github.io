@@ -37,12 +37,15 @@
   </style>
 </head>
 <body>
-  <div class="button-container">
+  <div class="button-container" id="button-container">
     <button class="neon-button" id="playButton">Confirm</button>
     <button class="neon-button" id="dvdButton">dvd</button>
     <button class="neon-button" id="planetbutton">planet</button>
+    <button class="neon-button" id="galleryButton">Gallery</button>
   </div>
+  
   <a href="el.html"><img class="small-image" src="tyan2024.png" alt="2024" /></a>
+
   <script src="script.js"></script>
   <script>
     document.getElementById("planetbutton").addEventListener("click", () => {
@@ -53,8 +56,12 @@
       window.location.href = "dvd/dvd.html";
     });
 
+    document.getElementById("galleryButton").addEventListener("click", () => {
+      window.location.href = "gallery.html"; // путь можно изменить
+    });
+
     document.querySelector(".small-image").addEventListener("click", () => {
-      window.location.href = "el.html";
+      window.location.href = "arts/index3.html";
     });
 
     window.addEventListener("keydown", (event) => {
