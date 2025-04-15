@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Art Gallery</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background: linear-gradient(90deg, #2c001e, #3b0030);
+    }
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .genre-button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .image-card {
+      border: 2px solid white;
+      padding: 5px;
+      text-align: center;
+    }
+    .image-card img {
+      max-width: 100%;
+      display: block;
+      margin: auto;
+    }
+    .load-more {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="logo" />
+    <button class="genre-button" onclick="loadGenre('a0')">a0</button>
+    <button class="genre-button" onclick="loadGenre('a1')">a1</button>
+    <button class="genre-button" onclick="loadGenre('a2')">a2</button>
+    <button class="genre-button" onclick="loadGenre('a3')">a3</button>
+  </header>
+
+  <div class="gallery" id="gallery"></div>
+  <button class="load-more" id="loadMoreBtn" onclick="loadMore()">Загрузить ещё</button>
+
+  <footer>
+    Все права защищены © 2015–2025 | Telegram: <a href="https://t.me/Mei_tyan" style="color:white;">@Mei_tyan</a>
+  </footer>
+
+  <script>
+    let currentGenre = null;
+    let offset = 0;
+    const limit = 20;
+
+    function loadGenre(genre) {
+      currentGenre = genre;
+      offset = 0;
+      document.getElementById('gallery').innerHTML = '';
+      document.getElementById('loadMoreBtn').disabled = false;
+      fetchImages();
+    }
+
+    function loadMore() {
+      if (!currentGenre) return;
+      fetchImages();
+    }
+
+    function fetchImages() {
+      fetch(`/api/images/${currentGenre}?offset=${offset}&limit=${limit}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.images.length > 0) {
+            const gallery = document.getElementById('gallery');
+            data.images.forEach(img => {
+              const card = document.createElement('div');
+              card.className = 'image-card';
+              card.innerHTML = `
+                <img src="${img.url}" alt="image">
+                <div>Загрузил: ${img.uploader}</div>
+                <div>Просмотров: ${img.views}</div>
+              `;
+              gallery.appendChild(card);
+            });
+            offset += data.images.length;
+            if (!data.hasMore) {
+              document.getElementById('loadMoreBtn').disabled = true;
+              document.getElementById('loadMoreBtn').innerText = 'Больше нет изображений';
+            }
+          } else {
+            document.getElementById('loadMoreBtn').disabled = true;
+            document.getElementById('loadMoreBtn').innerText = 'Больше нет изображений';
+          }
+        })
+        .catch(err => {
+          console.error('Ошибка загрузки:', err);
+        });
+    }
+  </script>
+</body>
+</html>
